@@ -96,8 +96,9 @@ document.querySelectorAll('section, .project-card, .skill-category, .stat').forE
 // Form submission
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
     
     // Get form data
     const formData = new FormData(contactForm);
@@ -124,18 +125,27 @@ contactForm.addEventListener('submit', (e) => {
     
     // Reset form
     contactForm.reset();
-});
+    });
+}
 
 // Typing effect for hero title (optional enhancement)
 const heroTitle = document.querySelector('.hero-title');
 if (heroTitle) {
-    const text = heroTitle.innerHTML;
-    heroTitle.innerHTML = '';
+    const text = heroTitle.textContent;
+    const highlight = 'Azad Nishad';
+    heroTitle.textContent = '';
     let i = 0;
     
     function typeWriter() {
         if (i < text.length) {
-            heroTitle.innerHTML += text.charAt(i);
+            const currentText = text.substring(0, i + 1);
+            // Rebuild with highlight span
+            if (currentText.includes(highlight)) {
+                const parts = currentText.split(highlight);
+                heroTitle.innerHTML = parts[0] + '<span class="highlight">' + highlight + '</span>' + parts[1];
+            } else {
+                heroTitle.textContent = currentText;
+            }
             i++;
             setTimeout(typeWriter, 50);
         }
@@ -145,12 +155,19 @@ if (heroTitle) {
     setTimeout(typeWriter, 500);
 }
 
-// Parallax effect for hero section
+// Parallax effect for hero section (throttled)
+let ticking = false;
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+            ticking = false;
+        });
+        ticking = true;
     }
 });
 
@@ -165,7 +182,11 @@ document.querySelectorAll('.project-card').forEach(card => {
 const footerYear = document.querySelector('.footer p');
 if (footerYear) {
     const currentYear = new Date().getFullYear();
-    footerYear.innerHTML = `&copy; ${currentYear} Azad Nishad. All rights reserved.`;
+    const copyrightText = footerYear.textContent.trim();
+    // Only update if it doesn't already have the current year
+    if (!copyrightText.includes(currentYear.toString())) {
+        footerYear.innerHTML = `&copy; ${currentYear} Azad Nishad. All rights reserved.`;
+    }
 }
 
 // Scroll to top button (optional)
