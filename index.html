@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Azad Nishad - Portfolio | Web Developer & Designer">
+    <meta name="keywords" content="Portfolio, Web Developer, Designer, Azad Nishad">
+    <meta name="author" content="Azad Nishad">
+    <title>The Chronicle of Azad Nishad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Book Cover -->
+    <div class="book-cover" id="bookCover">
+        <div class="book-spine"></div>
+        <div class="book-front">
+            <div class="book-title">
+                <h1>The Chronicle</h1>
+                <div class="ornament">✦</div>
+                <h2>of</h2>
+                <h1>Azad Nishad</h1>
+                <div class="subtitle">A Tale of Code & Creation</div>
+            </div>
+        </div>
+        <button class="open-book-btn" onclick="openBook()">
+            Open the Book
+            <i class="fas fa-book-open"></i>
+        </button>
+    </div>
+
+    <!-- Book Pages Container -->
+    <div class="book-container" id="bookContainer" style="display: none;">
+        <div class="page-shadow-left"></div>
+        <div class="page-shadow-right"></div>
+        
+        <!-- Left Page -->
+        <div class="page left-page">
+            <!-- Table of Contents -->
+            <div class="page-content" id="tocPage">
+                <div class="page-header">
+                    <div class="chapter-ornament">❦</div>
+                    <h2 class="chapter-title">Table of Contents</h2>
+                    <div class="chapter-ornament">❦</div>
+                </div>
+                <nav class="toc">
+                    <ul>
+                        <li><a href="#" onclick="turnToPage('about')" class="toc-link">
+                            <span class="toc-number">I.</span>
+                            <span class="toc-text">The Author's Tale</span>
+                            <span class="toc-dots"></span>
+                            <span class="toc-page">1</span>
+                        </a></li>
+                        <li><a href="#" onclick="turnToPage('skills')" class="toc-link">
+                            <span class="toc-number">II.</span>
+                            <span class="toc-text">The Arts & Crafts</span>
+                            <span class="toc-dots"></span>
+                            <span class="toc-page">2</span>
+                        </a></li>
+                        <li><a href="#" onclick="turnToPage('projects')" class="toc-link">
+                            <span class="toc-number">III.</span>
+                            <span class="toc-text">The Grand Works</span>
+                            <span class="toc-dots"></span>
+                            <span class="toc-page">3</span>
+                        </a></li>
+                        <li><a href="#" onclick="turnToPage('contact')" class="toc-link">
+                            <span class="toc-number">IV.</span>
+                            <span class="toc-text">Send Word</span>
+                            <span class="toc-dots"></span>
+                            <span class="toc-page">4</span>
+                        </a></li>
+                    </ul>
+                </nav>
+                <div class="page-footer">
+                    <div class="ink-blot"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Page -->
+        <div class="page right-page">
+            <!-- About Page -->
+            <div class="page-content active" id="aboutPage">
+                <div class="page-header">
+                    <div class="chapter-number">Chapter I</div>
+                    <div class="chapter-ornament">❦</div>
+                    <h2 class="chapter-title">The Author's Tale</h2>
+                </div>
+                
+                <div class="illuminated-letter">A</div>
+                <div class="page-text">
+                    <p class="first-paragraph">zad Nishad, a craftsman of the digital realm, doth dwell in the mystical lands of India. His passion lies in weaving the fabric of the internet, creating portals and applications that bring wonder to those who traverse them.</p>
+                    
+                    <p>In the year of our Lord 2020, young Azad embarked upon his journey into the arcane arts of web development. With determination and curiosity as his guides, he hath mastered the ancient scrolls of code and the modern tomes of technology.</p>
+                    
+                    <p>Through countless moons and suns, he hath honed his craft, working on diverse projects that have shaped him into the developer he is today. His quest for knowledge never ceases, as he constantly seeks to learn new enchantments and improve his mastery.</p>
+                    
+                    <div class="achievements">
+                        <div class="achievement-item">
+                            <div class="achievement-number">20+</div>
+                            <div class="achievement-label">Projects Completed</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">3+</div>
+                            <div class="achievement-label">Years of Experience</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">15+</div>
+                            <div class="achievement-label">Satisfied Clients</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page-number">1</div>
+            </div>
+
+            <!-- Skills Page -->
+            <div class="page-content" id="skillsPage">
+                <div class="page-header">
+                    <div class="chapter-number">Chapter II</div>
+                    <div class="chapter-ornament">❦</div>
+                    <h2 class="chapter-title">The Arts & Crafts</h2>
+                </div>
+                
+                <div class="page-text">
+                    <p class="intro-text">Herein lie the sacred arts and mystical crafts mastered by the author:</p>
+                    
+                    <div class="skill-scroll">
+                        <h3 class="skill-category"><i class="fas fa-scroll"></i> The Frontend Arts</h3>
+                        <div class="skill-list">
+                            <span class="skill-rune">HTML5</span>
+                            <span class="skill-rune">CSS3</span>
+                            <span class="skill-rune">JavaScript</span>
+                            <span class="skill-rune">React</span>
+                            <span class="skill-rune">Vue.js</span>
+                            <span class="skill-rune">TypeScript</span>
+                            <span class="skill-rune">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-scroll">
+                        <h3 class="skill-category"><i class="fas fa-book"></i> The Backend Mysteries</h3>
+                        <div class="skill-list">
+                            <span class="skill-rune">Node.js</span>
+                            <span class="skill-rune">Express</span>
+                            <span class="skill-rune">Python</span>
+                            <span class="skill-rune">Django</span>
+                            <span class="skill-rune">MongoDB</span>
+                            <span class="skill-rune">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-scroll">
+                        <h3 class="skill-category"><i class="fas fa-hammer"></i> The Tools of Trade</h3>
+                        <div class="skill-list">
+                            <span class="skill-rune">Git</span>
+                            <span class="skill-rune">GitHub</span>
+                            <span class="skill-rune">Docker</span>
+                            <span class="skill-rune">AWS</span>
+                            <span class="skill-rune">VS Code</span>
+                            <span class="skill-rune">Figma</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page-number">2</div>
+            </div>
+
+            <!-- Projects Page -->
+            <div class="page-content" id="projectsPage">
+                <div class="page-header">
+                    <div class="chapter-number">Chapter III</div>
+                    <div class="chapter-ornament">❦</div>
+                    <h2 class="chapter-title">The Grand Works</h2>
+                </div>
+                
+                <div class="page-text">
+                    <p class="intro-text">Chronicles of the author's most notable creations:</p>
+                    
+                    <div class="project-entry">
+                        <h3 class="project-title"><i class="fas fa-shopping-cart"></i> E-Commerce Platform</h3>
+                        <p class="project-description">A grand marketplace built with the powers of React and Node.js, featuring secure authentication, merchant tools, and the ancient art of payment integration.</p>
+                        <div class="project-tech">
+                            <span>React</span> • <span>Node.js</span> • <span>MongoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="project-entry">
+                        <h3 class="project-title"><i class="fas fa-tasks"></i> Task Management System</h3>
+                        <p class="project-description">A collaborative endeavor enabling teams to organize their quests in real-time, with enchanted drag-and-drop functionality.</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span> • <span>Firebase</span> • <span>Vuex</span>
+                        </div>
+                    </div>
+
+                    <div class="project-entry">
+                        <h3 class="project-title"><i class="fas fa-palette"></i> Portfolio Generator</h3>
+                        <p class="project-description">An automated scribe that creates beautiful portfolio manuscripts from the tales of wandering developers.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span> • <span>Express</span> • <span>EJS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page-number">3</div>
+            </div>
+
+            <!-- Contact Page -->
+            <div class="page-content" id="contactPage">
+                <div class="page-header">
+                    <div class="chapter-number">Chapter IV</div>
+                    <div class="chapter-ornament">❦</div>
+                    <h2 class="chapter-title">Send Word</h2>
+                </div>
+                
+                <div class="page-text">
+                    <p class="intro-text">Should thee wish to embark upon a collaborative quest, or simply exchange pleasantries, send thy message through this enchanted scroll:</p>
+                    
+                    <form class="ancient-form" id="contactForm">
+                        <div class="form-field">
+                            <label>Thy Name:</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>Thy Electronic Post:</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label>Thy Message:</label>
+                            <textarea name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="seal-button">
+                            <i class="fas fa-feather-alt"></i> Send by Raven
+                        </button>
+                    </form>
+
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> contact@araom.me</p>
+                        <p><i class="fas fa-map-marker-alt"></i> India</p>
+                        <div class="social-seals">
+                            <a href="https://github.com/AzadNishad" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page-number">4</div>
+            </div>
+        </div>
+
+        <!-- Page Navigation -->
+        <div class="page-controls">
+            <button class="nav-btn prev-btn" onclick="prevPage()" id="prevBtn" disabled>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <span class="page-indicator" id="pageIndicator">Page 1 of 4</span>
+            <button class="nav-btn next-btn" onclick="nextPage()" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Close Book Button -->
+        <button class="close-book-btn" onclick="closeBook()">
+            <i class="fas fa-times"></i> Close Book
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="ancient-footer">
+        <p>Penned in the year of MMXXIV • Azad Nishad</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
